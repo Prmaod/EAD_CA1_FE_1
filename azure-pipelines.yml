@@ -47,3 +47,5 @@ stages:
         targetPath: 'create-nodejs-service-manifest.yaml'
         artifact: 'YAML'
         publishLocation: 'pipeline'
+        
+        
