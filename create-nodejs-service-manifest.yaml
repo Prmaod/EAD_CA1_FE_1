@@ -36,7 +36,23 @@ spec:
       # pod contains 1 container
       containers:
       - name: node
-        image: pramacr.azurecr.io/nodejs-server:latest 
+        image: pramacr.azurecr.io/nodejs-server:latest
+        livenessProbe:
+          httpGet:
+          path: /healthy
+          port: 22137
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+          path: /ready
+          port: 22137
+          periodDeconds: 2
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          successThreshold: 1
         # container opens port 22137
         ports:
         - containerPort: 22137
