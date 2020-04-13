@@ -49,8 +49,8 @@ spec:
           httpGet:
             path: /ready
             port: 22137
-          periodDeconds: 2
-          initialDelaySeconds: 0
+          periodSeconds: 2
+          initialDelaySeconds: 30
           failureThreshold: 3
           successThreshold: 1
         # container opens port 22137
