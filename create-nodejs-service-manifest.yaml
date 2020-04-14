@@ -37,6 +37,13 @@ spec:
       containers:
       - name: node
         image: pramacr.azurecr.io/nodejs-server:latest
+        resources:
+          requests:  #request a Pod with  a minimum of 0.5 of a core and 128 MB of memory
+            cpu: "500m"
+            memory: "128Mi"
+          limits:    #add a limit of 1.0 CPU and 256 MB of memory
+            cpu: "1000m"   
+            memory: "256Mi"  
         livenessProbe:
           httpGet:
             path: /healthy
